@@ -53,21 +53,23 @@ const app = Vue.createApp({
                 this.monto=this.monto+this.apuestan+this.apuestan+this.apuestan
             } else {
                 document.getElementById("numeroResultado").innerText = "no gano intentelo de nuevo";
+                this.monto=this.monto-this.apuestan;
             }
         },
         apuestaParImpar() {
             if (document.getElementById("parImpar").innerText === document.getElementById("parImparApuesta").innerText) {
-                document.getElementById("parImparResultado").innerText = "saco el " + document.getElementById("parImparApuesta").innerText + " apostado";
+                document.getElementById("parImparResultado").innerText = "Saco el " + document.getElementById("parImparApuesta").innerText + " apostado";
                 //var montoSumar = document.getElementById("apuesta").innerText;
                 //var montoApostadoMitad = parseInt(montoSumar) + parseInt(montoSumar);
                 this.monto=this.monto+this.apuestan;
             } else {
-                document.getElementById("parImparResultado").innerText = "no gano intetelo d enuevo";
+                document.getElementById("parImparResultado").innerText = "No gano intetelo de nuevo";
+                this.monto=this.monto-this.apuestan;
             }
         },
         apuestaColor(data) {
             if (data === document.getElementById("colorApostar").innerText) {
-                document.getElementById("coloresResultado").innerText = "ganaste sacaste el color apostado";
+                document.getElementById("coloresResultado").innerText = "Ganaste sacaste el color apostado";
                 //mitad del monto apostado
                 //var montoSumar = document.getElementById("apuesta").innerText;
                 //var montoApostadoMitad = parseInt(montoSumar) / 2;
@@ -79,6 +81,7 @@ const app = Vue.createApp({
         
             } else {
                 document.getElementById("coloresResultado").innerText = "no gano intentelo de nuevo";
+                this.monto=this.monto-this.apuestan;
             }
         
         },
